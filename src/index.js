@@ -6,29 +6,30 @@ const Home = () => {
   return (
     <div>
       <h1>Home!</h1>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/login">login</a>
     </div>
   );
 };
  
-ReactDOM.render(
-  <Home />,
-  document.getElementById('root')
-);
-
-ReactDOM.render((
-  <Router>
-    <React.Fragment>
-      <Route path="/" render={Home} />
-      <Route exact path="/about" render={About} />
-      <Route exact path="/login" render={Login} />
-    </React.Fragment>
-  </Router>),
-  document.getElementById('root')
-);
+const About = () => {
+  return (
+    <div>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/login">login</a>
+      <h1>This is my about component!</h1>
+    </div>
+  );
+};
 
 const Login = () => {
   return (
     <div>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/login">login</a>
       <form>
         <div>
           <input type="text" name="username" placeholder="Username" />
@@ -43,3 +44,15 @@ const Login = () => {
     </div>
   );
 };
+
+ReactDOM.render((
+  <Router>
+    <React.Fragment>
+      <Route exact path="/" render={Home} />
+      <Route exact path="/about" render={About} />
+      <Route exact path="/login" render={Login} />
+    </React.Fragment>
+  </Router>),
+  document.getElementById('root')
+);
+
